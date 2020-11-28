@@ -30,6 +30,12 @@
     <ClCompile Include="MemoryOperation.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringOperation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOperation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper.h">

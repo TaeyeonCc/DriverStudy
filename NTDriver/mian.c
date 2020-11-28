@@ -101,5 +101,23 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT pDriverObj, PUNICODE_STRING pRegistryString)
 		return status;
 	}
 
+	WCHAR strSrcFile[MAX_PATH] = { 0 };
+	WCHAR strDestFile[MAX_PATH] = { 0 };
+	UNICODE_STRING uSrcString = { 0 };
+	UNICODE_STRING uDestString = { 0 };
+
+	wcscpy(strSrcFile, L"\\??\\");
+	wcscat(strSrcFile, L"C:\\111.exe");
+	wcscpy(strDestFile, L"\\??\\");
+	wcscat(strDestFile, L"C:\\222.exe");
+
+	RtlInitUnicodeString(&uSrcString, strSrcFile);
+	RtlInitUnicodeString(&uDestString, strDestFile);
+
+	if (ZwCopyFile(&uDestString, &uSrcString))
+	{
+		KdPrint(("jjcc  hahahahah"));
+	}
+
 	return STATUS_SUCCESS;
 }

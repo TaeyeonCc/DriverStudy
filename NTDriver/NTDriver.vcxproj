@@ -163,8 +163,10 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileOperation.c" />
     <ClCompile Include="MemoryOperation.c" />
     <ClCompile Include="mian.c" />
+    <ClCompile Include="StringOperation.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helper.h" />

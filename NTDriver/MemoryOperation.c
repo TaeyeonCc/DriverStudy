@@ -39,6 +39,9 @@ void WPONx64(KIRQL irql) {
 void TestMemCopy() {
 	KIRQL irql = WPOFFx64();
 	PVOID HookCode = ExAllocatePool(NonPagedPool, 0x200);
+	if (HookCode == NULL)
+		return;
+
 	RtlFillMemory(HookCode, 0x200, 0x90);
 	RtlMoveMemory(HookCode, NtOpenProcess, 0x3);//NtOpenProcess函数的前三个字节
 	RtlMoveMemory(NtOpenProcess, HookCode, 0x3);
@@ -89,3 +92,4 @@ void TestMemCopy1() {
 	RtlMoveMemory(HookCode, NtOpenProcess, 0x3);
 	SafeCopyMemory(NtOpenProcess, HookCode, 0x3);
 }
+
